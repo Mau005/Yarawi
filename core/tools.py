@@ -4,7 +4,9 @@ def package(pack):
     return pickle.dumps(pack)
 
 def unpack(pack):
-    return pickle.loads(pack)
+    if pack == b'':
+        return None #return None if nothin bytes received package
+    return pickle.loads(pack) #return contents for received package
 
 def loadJson(path):
     archive = open(path, "r")
