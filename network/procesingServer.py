@@ -14,8 +14,8 @@ class ProcesingServer:
     def receive(self):
         return unpack(self.client.recv(1024))
 
-    def run(self):
+    def run(self, *args):
         while self.status:
-            print("Cliente iniciado")
             obj = self.receive()
-            print(obj)
+            if obj is not None:
+                print("Es informacion")
