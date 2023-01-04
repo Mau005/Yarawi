@@ -29,6 +29,7 @@ class Server:
         while self.socket is not None:
             clt, addr = self.socket.accept()
             obj = ProcesingServer(client = clt, addr = addr, motd = self.motd)
+            print(f"Se ha conectado: {addr}")
             self.listUser.append(obj)
             th = threading.Thread(target = obj.run)
             th.start()
